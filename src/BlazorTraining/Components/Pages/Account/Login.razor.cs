@@ -37,5 +37,10 @@ namespace BlazorTraining.Components.Pages.Account
                 ErrorMessage = ex.Message;
             }
         }
+
+        public void LogoutClick()
+        {
+            Navigation.NavigateTo(PageNames.Logout);
+        }
     }
 }

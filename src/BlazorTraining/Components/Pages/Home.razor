@@ -1,21 +1,31 @@
 ﻿@page "/"
 @page "/home"
 @rendermode InteractiveServer
+@attribute [Authorize]
+
+@using BlazorTraining.Services
+@using Microsoft.AspNetCore.Authorization
 
 <PageTitle>Home</PageTitle>
 
 <h1>Home</h1>
 <div>
     Render: @RendererInfo.Name<br />
-    Render count: @renderCounter
+    Render count: @renderCounter<br />
+    <AuthorizeView Roles="@AuthService.RoleAdmin">
+        <Authorized>
+            Admin role<br />
+        </Authorized>
+    </AuthorizeView>
+    <AuthorizeView Roles="@AuthService.RoleUser">
+        <Authorized>
+            User role<br />
+        </Authorized>
+    </AuthorizeView>
 </div>
 <div>
     <button class="btn btn-primary" @onclick="ButtonClick">jQuery (@jQueryCounter)</button>
-    <AuthorizeView>
-        <NotAuthorized>
-            <button class="btn btn-primary" @onclick="LoginClick">Login</button>
-        </NotAuthorized>
-    </AuthorizeView>
+    <button class="btn btn-primary" @onclick="AlertClick">Alert</button>
 </div>
 
 

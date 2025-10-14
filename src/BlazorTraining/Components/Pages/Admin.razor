@@ -1,0 +1,27 @@
+﻿@page "/admin"
+@rendermode InteractiveServer
+@attribute [Authorize(Roles = AuthService.RoleAdmin)]
+
+@using BlazorTraining.Services
+@using Microsoft.AspNetCore.Authorization
+
+<PageTitle>Admin</PageTitle>
+
+<h1>Admin</h1>
+
+<div>
+    Login: @userName
+</div>
+
+@code {
+    [CascadingParameter]
+    private Task<AuthenticationState> authStateTask { get; set; } = default!;
+
+    private string? userName;
+
+    protected async override Task OnInitializedAsync()
+    {
+        var state = await authStateTask;
+        userName = state.User.Identity!.Name;
+    }
+}
