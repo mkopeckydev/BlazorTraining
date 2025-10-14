@@ -1,0 +1,33 @@
+﻿@page "/logout"
+@using BlazorTraining.Services
+@using BlazorTraining.Tools
+
+@inject AuthService Auth
+@inject NavigationManager Navigation
+
+@if (String.IsNullOrEmpty(Message))
+{
+    <head>
+        <meta http-equiv="refresh" content="0; url=@PageNames.Login" />
+    </head>
+}
+else
+{
+    <div>
+        Render: @RendererInfo.Name
+    </div>
+    <div>
+        Error: @Message
+    </div>
+}
+
+@code {
+    protected string Message { get; set; } = String.Empty;
+
+    protected async override Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+
+        Message = await Auth.SignOutAsync();
+    }
+}

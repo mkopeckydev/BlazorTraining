@@ -1,4 +1,17 @@
-h1
-{
+h1 {
     outline: none;
+    font-size: 1.5rem;
+}
+
+.login-form {
+    max-width: 350px;
+}
+
+.valid-message {
+    font-size: 0.7rem;
+    color: red;
+}
+
+.err-message {
+    color: red;
 }

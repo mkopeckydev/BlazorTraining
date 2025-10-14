@@ -1,12 +1,21 @@
 ﻿@page "/"
 @page "/home"
+@rendermode InteractiveServer
 
-<PageTitle>Blazor authentication</PageTitle>
+<PageTitle>Home</PageTitle>
 
-<div class="container">
-
-    <h1>Blazor training</h1>
-
-    <button class="btn btn-primary" @onclick="ButtonClick">jQuery (@jQueryCounter)</button>
-
+<h1>Home</h1>
+<div>
+    Render: @RendererInfo.Name<br />
+    Render count: @renderCounter
 </div>
+<div>
+    <button class="btn btn-primary" @onclick="ButtonClick">jQuery (@jQueryCounter)</button>
+    <AuthorizeView>
+        <NotAuthorized>
+            <button class="btn btn-primary" @onclick="LoginClick">Login</button>
+        </NotAuthorized>
+    </AuthorizeView>
+</div>
+
+

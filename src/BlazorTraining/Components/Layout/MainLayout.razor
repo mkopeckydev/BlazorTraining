@@ -1,9 +1,57 @@
-﻿@inherits LayoutComponentBase
+﻿@using BlazorTraining.Tools
+@inherits LayoutComponentBase
 
-@Body
+@inject AuthenticationStateProvider authProvider
+
+<div class="container">
+
+    <header class="border-bottom mb-2 p-1">
+        <div class="row align-items-start">
+            <div class="col fw-bold">
+                Blazor training (render: @RendererInfo.Name)
+            </div>
+            <div class="col text-end">
+                <AuthorizeView>
+                    <NotAuthorized>
+                        <a href="@PageNames.Login">Login</a>
+                    </NotAuthorized>
+                    <Authorized>
+                        @UserName, <a href="@PageNames.Logout">Logout</a>
+                    </Authorized>
+                </AuthorizeView>
+                <a href="@PageNames.Home">Home</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        @Body
+    </main>
+
+</div>
 
 <div id="blazor-error-ui" data-nosnippet>
     An unhandled error has occurred.
     <a href="." class="reload">Reload</a>
     <span class="dismiss">🗙</span>
 </div>
+
+@code{
+    private string? UserName { get; set; } = String.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await authProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (user.Identity?.IsAuthenticated == true)
+        {
+            UserName = user.Identity.Name;
+        }
+        else
+        {
+            UserName = "Nepřihlášen";
+        }
+
+    }
+}
