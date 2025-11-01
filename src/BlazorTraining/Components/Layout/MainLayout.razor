@@ -3,6 +3,7 @@
 @inherits LayoutComponentBase
 
 @inject AuthenticationStateProvider authProvider
+@inject NavigationManager Navigation
 
 <div class="container">
 
@@ -14,14 +15,14 @@
             <div class="col text-end">
                 <AuthorizeView>
                     <NotAuthorized>
-                        <a href="@PageNames.Login">Login</a>
+                        <NavLink href="@PageNames.Login">Login</NavLink>
                     </NotAuthorized>
                     <Authorized>
-                        @UserName, <a href="@PageNames.Logout">Logout</a>
+                        @UserName, <NavLink href="@PageNames.Logout">Logout</NavLink>
                     </Authorized>
                 </AuthorizeView>
-                <a href="@PageNames.Home">Home</a>
-                <a href="@PageNames.Admin">Admin</a>
+                <NavLink href="@PageNames.Home">Home</NavLink>
+                <NavLink href="@PageNames.Admin">Admin</NavLink>
             </div>
         </div>
     </header>

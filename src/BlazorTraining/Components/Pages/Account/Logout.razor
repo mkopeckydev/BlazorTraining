@@ -4,12 +4,17 @@
 
 @inject AuthService Auth
 @inject NavigationManager Navigation
+@inject IConfiguration Config
 
 @if (String.IsNullOrEmpty(Message))
 {
     <head>
-        <meta http-equiv="refresh" content="0; url=@PageNames.Login" />
+        <meta http-equiv="refresh" content="1; url=@Redirect()" />
     </head>
+
+    <div>
+        Probíhá odhlášení
+    </div>
 }
 else
 {
@@ -29,5 +34,10 @@ else
         await base.OnInitializedAsync();
 
         Message = await Auth.SignOutAsync();
+    }
+
+    private string Redirect()
+    {
+        return Config.GetValue<string>(ConfigNames.AppBasePath) + PageNames.Login;
     }
 }

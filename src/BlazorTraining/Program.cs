@@ -17,9 +17,9 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     .AddCookie(options =>
     {
         options.Cookie.Name = "training_blazor_token";
-        options.LoginPath = PageNames.Login;
+        options.LoginPath = "/" + PageNames.Login;
         options.Cookie.MaxAge = TimeSpan.FromHours(24);
-        options.AccessDeniedPath = PageNames.Denied; 
+        options.AccessDeniedPath = "/" + PageNames.Denied; 
     });
 
 builder.Services.AddAuthorization();
@@ -29,11 +29,12 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler(PageNames.Error, createScopeForErrors: true);
+    app.UseExceptionHandler("/" + PageNames.Error, createScopeForErrors: true);
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
+app.UseRouting();
 app.UseHttpsRedirection();
 app.UseAntiforgery();
 app.MapStaticAssets();

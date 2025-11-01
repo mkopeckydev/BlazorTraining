@@ -4,12 +4,17 @@
 
 @inject AuthService Auth
 @inject NavigationManager Navigation
+@inject IConfiguration Config
 
 @if (String.IsNullOrEmpty(Message))
 {
     <head>
-        <meta http-equiv="refresh" content="0; url=@PageNames.Home" />
+        <meta http-equiv="refresh" content="1; url=@Redirect()" />
     </head>
+
+    <div>
+        Probíhá přihlášení
+    </div>
 }
 else
 {
@@ -42,5 +47,10 @@ else
         {
             Message = "Invalid token";
         }
+    }
+
+    private string Redirect()
+    {
+        return Config.GetValue<string>(ConfigNames.AppBasePath) + PageNames.Home;
     }
 }
