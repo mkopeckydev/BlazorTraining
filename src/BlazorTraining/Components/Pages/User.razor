@@ -1,0 +1,30 @@
+@page "/user"
+@rendermode InteractiveServer
+
+<PageTitle>User</PageTitle>
+
+<h1>User</h1>
+
+<EditForm Model="@model" OnValidSubmit="HandleValidSubmit">
+    <div class="mb-1">
+        <label>Jméno</label>
+        <InputText @bind-Value="model.FirstName" class="form-control" />
+    </div>
+    <div class="mb-1">
+        <label>Příjmení</label>
+        <InputText @bind-Value="model.LastName" class="form-control" />
+    </div>
+    <div class="mb-1">
+        <label>Město</label>
+        <InputText @bind-Value="model.City" class="form-control" />
+    </div>
+    <div class="mb-1">
+        <button class="btn btn-primary" type="submit">Uložit</button>
+    </div>
+</EditForm>
+
+@if (!string.IsNullOrEmpty(message))
+{
+    <div class="mt-2">@message</div>
+}
+

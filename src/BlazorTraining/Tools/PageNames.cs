@@ -10,6 +10,7 @@
         public const string Error = "error";
 
         public const string Home = "home";
+        public const string User = "user";
         public const string Admin = "admin";
     }
 }

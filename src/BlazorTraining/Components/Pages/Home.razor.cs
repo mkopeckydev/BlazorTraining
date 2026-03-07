@@ -26,6 +26,11 @@ namespace BlazorTraining.Components.Pages
             Navigation.NavigateTo(PageNames.Login);
         }
 
+        public void UserClick()
+        {
+            Navigation.NavigateTo(PageNames.User);
+        }
+
         public void AlertClick()
         {
             jsRuntime.InvokeVoidAsync("alert", "Blazor rulezz!");
