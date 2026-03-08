@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Components;
+using BlazorTraining.ViewModel;
 
 namespace BlazorTraining.Components.Pages
 {
@@ -10,13 +11,6 @@ namespace BlazorTraining.Components.Pages
         private void HandleValidSubmit()
         {
             message = $"Uloženo: {model.FirstName} {model.LastName}, {model.City}";
-        }
-
-        private class UserViewModel
-        {
-            public string FirstName { get; set; } = string.Empty;
-            public string LastName { get; set; } = string.Empty;
-            public string City { get; set; } = string.Empty;
         }
     }
 }

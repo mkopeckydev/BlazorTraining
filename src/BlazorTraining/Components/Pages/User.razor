@@ -3,28 +3,48 @@
 
 <PageTitle>User</PageTitle>
 
-<h1>User</h1>
+<h1 class="text-center">User</h1>
 
-<EditForm Model="@model" OnValidSubmit="HandleValidSubmit">
-    <div class="mb-1">
-        <label>Jméno</label>
-        <InputText @bind-Value="model.FirstName" class="form-control" />
-    </div>
-    <div class="mb-1">
-        <label>Příjmení</label>
-        <InputText @bind-Value="model.LastName" class="form-control" />
-    </div>
-    <div class="mb-1">
-        <label>Město</label>
-        <InputText @bind-Value="model.City" class="form-control" />
-    </div>
-    <div class="mb-1">
-        <button class="btn btn-primary" type="submit">Uložit</button>
-    </div>
-</EditForm>
+<div class="d-flex justify-content-center">
+    <div style="max-width:420px; width:100%;">
+        <EditForm Model="@model" OnValidSubmit="HandleValidSubmit">
+            <DataAnnotationsValidator />
+            <div class="mb-1">
+                <div class="input-group">
+                    <span class="input-group-text fixed-label">Jméno</span>
+                    <InputText @bind-Value="model.FirstName" class="form-control" />
+                </div>
+                <div class="text-center valid-message">
+                    <ValidationMessage For="() => model.FirstName" />
+                </div>
+            </div>
+            <div class="mb-1">
+                <div class="input-group">
+                    <span class="input-group-text fixed-label">Příjmení</span>
+                    <InputText @bind-Value="model.LastName" class="form-control" />
+                </div>
+                <div class="text-center valid-message">
+                    <ValidationMessage For="() => model.LastName" />
+                </div>
+            </div>
+            <div class="mb-1">
+                <div class="input-group">
+                    <span class="input-group-text fixed-label">Město</span>
+                    <InputText @bind-Value="model.City" class="form-control" />
+                </div>
+                <div class="text-center valid-message">
+                    <ValidationMessage For="() => model.City" />
+                </div>
+            </div>
+            <div class="mb-1 text-center">
+                <button class="btn btn-primary" type="submit">Uložit</button>
+            </div>
+        </EditForm>
 
-@if (!string.IsNullOrEmpty(message))
-{
-    <div class="mt-2">@message</div>
-}
+        @if (!string.IsNullOrEmpty(message))
+        {
+            <div class="mt-2 text-center">@message</div>
+        }
+    </div>
+</div>
 
