@@ -15,5 +15,8 @@ namespace BlazorTraining.ViewModel
         [Required(ErrorMessage = "Pole je povinné.")]
         [MaxLength(32, ErrorMessage = "Maximální délka je {1} znaků.")]
         public string City { get; set; } = string.Empty;
+
+        [MaxLength(64, ErrorMessage = "Maximální délka je {1} znaků.")]
+        public string Description { get; set; } = string.Empty;
     }
 }

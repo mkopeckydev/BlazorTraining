@@ -36,6 +36,15 @@
                     <ValidationMessage For="() => model.City" />
                 </div>
             </div>
+            <div class="mb-1">
+                <div class="input-group">
+                    <span class="input-group-text fixed-label">Popis</span>
+                    <InputTextArea @bind-Value="model.Description" class="form-control" rows="3" />
+                </div>
+                <div class="text-center valid-message">
+                    <ValidationMessage For="() => model.Description" />
+                </div>
+            </div>
             <div class="mb-1 text-center">
                 <button class="btn btn-primary" type="submit">Uložit</button>
             </div>
