@@ -17,8 +17,8 @@ h1 {
 }
 
 .input-group-text.fixed-label {
-    width: 90px;
-    min-width: 90px;
+    width: 150px;
+    min-width: 150px;
     justify-content: flex-start;
     padding-left: 0.5rem;
     white-space: nowrap;

@@ -18,5 +18,9 @@ namespace BlazorTraining.ViewModel
 
         [MaxLength(64, ErrorMessage = "Maximální délka je {1} znaků.")]
         public string Description { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "Pole je povinné.")]
+        [DataType(DataType.Date)]
+        public DateTime? DateOfBirth { get; set; }
     }
 }

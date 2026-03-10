@@ -10,7 +10,8 @@ namespace BlazorTraining.Components.Pages
 
         private void HandleValidSubmit()
         {
-            message = $"Uloženo: {model.FirstName} {model.LastName}, {model.City}";
+            var dob = model.DateOfBirth.HasValue ? model.DateOfBirth.Value.ToString("yyyy-MM-dd") : "";
+            message = $"Uloženo: {model.FirstName} {model.LastName}, {model.City} {dob}";
         }
     }
 }

@@ -1,12 +1,12 @@
 @page "/user"
 @rendermode InteractiveServer
 
-<PageTitle>User</PageTitle>
+<PageTitle>Detail osoby</PageTitle>
 
-<h1 class="text-center">User</h1>
+<h1 class="text-center">Detail osoby</h1>
 
 <div class="d-flex justify-content-center">
-    <div style="max-width:420px; width:100%;">
+    <div style="max-width:500px; width:100%;">
         <EditForm Model="@model" OnValidSubmit="HandleValidSubmit">
             <DataAnnotationsValidator />
             <div class="mb-1">
@@ -43,6 +43,15 @@
                 </div>
                 <div class="text-center valid-message">
                     <ValidationMessage For="() => model.Description" />
+                </div>
+            </div>
+            <div class="mb-1">
+                <div class="input-group">
+                    <span class="input-group-text fixed-label">Datum narození</span>
+                    <InputDate @bind-Value="model.DateOfBirth" class="form-control" />
+                </div>
+                <div class="text-center valid-message">
+                    <ValidationMessage For="() => model.DateOfBirth" />
                 </div>
             </div>
             <div class="mb-1 text-center">
