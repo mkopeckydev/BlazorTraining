@@ -54,6 +54,15 @@
                     <ValidationMessage For="() => model.DateOfBirth" />
                 </div>
             </div>
+            <div class="mb-1">
+                <div class="input-group">
+                    <span class="input-group-text fixed-label">Výška postavy</span>
+                    <InputNumber @bind-Value="model.Height" class="form-control" />
+                </div>
+                <div class="text-center valid-message">
+                    <ValidationMessage For="() => model.Height" />
+                </div>
+            </div>
             <div class="mb-1 text-center">
                 <button class="btn btn-primary" type="submit">Uložit</button>
             </div>

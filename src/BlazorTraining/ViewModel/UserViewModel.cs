@@ -22,5 +22,10 @@ namespace BlazorTraining.ViewModel
         [Required(ErrorMessage = "Pole je povinné.")]
         [DataType(DataType.Date)]
         public DateTime? DateOfBirth { get; set; }
+
+        [Required(ErrorMessage = "Pole je povinné.")]
+        [Range(0, 200, ErrorMessage = "Hodnota musí být mezi {1} a {2}.")]
+        [Display(Name = "Výška postavy")]
+        public int? Height { get; set; }
     }
 }

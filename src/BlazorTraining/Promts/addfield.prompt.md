@@ -1,8 +1,8 @@
-## Přidej nové pole do formuláře User
+## Přidej nové pole do formuláře User a odpovídajícího viewmodelu UserViewModel 
 
-- Nové pole se bude jmenovat Datum narození
-- Typ pole bude DateTime
-- Zadání pole bude povinné
+- Nové pole se bude jmenovat Výška postavy
+- Typ pole bude celé číslo
+- Zadání pole bude povinné, minimální hodnota bude 0 a maximální 200
 
 
 
